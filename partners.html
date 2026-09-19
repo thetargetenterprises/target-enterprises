@@ -3,10 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-  <title>Vendor & Subcontractor Network | Target Enterprises Placement Office</title>
-  <meta name="description" content="B2B partnership and subcontracting registration for turnkey shutdowns, tenders, and interstate manpower pooling." />
+  <title>Subcontracting &amp; Vendor Network | Target Enterprises Placement Office</title>
+  <meta name="description" content="B2B industrial partnership, contractor enrollment, and interstate manpower pooling for refinery turnarounds, power plants, and EPC projects across India." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css?v=2026.09.21" />
+  <link rel="stylesheet" href="style.css?v=2026.09.30" />
+  
+<style>
+.services-jump-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 8px 4px 16px 4px;
+  margin-bottom: 28px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.services-jump-bar::-webkit-scrollbar { display: none; }
+.jump-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.jump-pill:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+}
+
+.svc-division-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.07);
+  scroll-margin-top: 65px;
+  transition: box-shadow 0.2s ease;
+}
+.svc-division-card:hover {
+  box-shadow: 0 8px 28px -4px rgba(15, 23, 42, 0.1);
+}
+
+.svc-banner-header {
+  position: relative;
+  height: 160px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 24px;
+}
+.svc-banner-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.svc-banner-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.45) 100%);
+  z-index: 2;
+}
+.svc-banner-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.svc-banner-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.svc-banner-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.svc-badge-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.svc-card-body {
+  padding: clamp(18px, 3vw, 28px);
+}
+.svc-overview-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.svc-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.svc-role-box {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 16px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.svc-role-box:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(15,23,42,0.06);
+  border-color: var(--primary);
+}
+
+.svc-role-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+.svc-role-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+.svc-role-code {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.svc-role-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.svc-field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.svc-field-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.svc-field-val {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+.svc-action-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .svc-banner-header { height: 130px; padding: 16px; }
+  .svc-roles-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+
 </head>
 <body>
 
@@ -21,7 +233,13 @@
       </div>
 
       <ul class="main-nav-links">
-        <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li><li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li><li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li><li><a href="services.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li><li><a href="partners.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li><li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights & Blog</span></a></li><li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
+        <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li>
+        <li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li>
+        <li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li>
+        <li><a href="services.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li>
+        <li><a href="partners.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li>
+        <li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights &amp; Blog</span></a></li>
+        <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
       </ul>
 
       <div class="header-action-group">
@@ -42,7 +260,13 @@
       <button class="drawer-close" id="closeDrawerTrigger" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <ul class="drawer-links-list">
-      <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li><li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li><li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li><li><a href="services.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li><li><a href="partners.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li><li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights & Blog</span></a></li><li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
+      <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li>
+      <li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li>
+      <li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li>
+      <li><a href="services.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li>
+      <li><a href="partners.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li>
+      <li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights &amp; Blog</span></a></li>
+      <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
       <li>
         <a href="send-email.html" style="background:var(--primary-subtle); color:var(--primary);">
           <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <span>Send Official Email</span>
@@ -56,278 +280,253 @@
     </div>
   </div>
 
-  <section class="hero-wrapper">
+  <section class="hero-wrapper" style="padding-bottom: 12px;">
     <div class="container">
-      <div class="pill-badge" style="color:var(--purple); border-color:rgba(124,58,237,0.25);"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> B2B Subcontracting &amp; Vendor Network</div>
+      <div class="pill-badge" style="color:var(--purple); border-color:rgba(124,58,237,0.25);">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> B2B Subcontracting &amp; Vendor Portal
+      </div>
       <h1 class="hero-headline">Pan-India <span>Subcontracting &amp; Vendor</span> Network</h1>
-      <p class="hero-subline">Collaborate on large refinery turnaround tenders, thermal power plant shutdowns, cross-country pipeline projects, and turnkey workforce pooling across India with 100% legal backing under CLRA Act 1970.</p>
+      <p class="hero-subline">
+        Collaborate on large refinery turnaround tenders, thermal power plant shutdowns, cross-country pipeline projects, and turnkey workforce pooling across India with 100% legal backing under CLRA Act 1970.
+      </p>
 
-      <!-- QUICK JUMP ANCHORS BAR -->
-      <div class="anchor-nav-bar">
-        <a href="#partner-advantages" class="anchor-pill">🌟 Partner Advantages</a>
-        <a href="#partner-tiers" class="anchor-pill">🏗️ Capacity Tiers</a>
-        <a href="#partner-workflow" class="anchor-pill">⚡ 4-Step Onboarding</a>
-        <a href="#partner-form" class="anchor-pill">📝 Registration Form</a>
-        <a href="#partner-sla" class="anchor-pill">⚖️ SLA &amp; Commercial Terms</a>
+      <!-- FLOATING JUMP ANCHORS BAR -->
+      <div class="services-jump-bar">
+        <a href="#partner-advantages" class="jump-pill">🌟 Partner Advantages</a>
+        <a href="#partner-tiers" class="jump-pill">🏗️ Capacity Tiers</a>
+        <a href="#partner-workflow" class="jump-pill">⚡ 4-Step Onboarding</a>
+        <a href="#partner-form" class="jump-pill">📝 Registration Form</a>
+        <a href="#partner-sla" class="jump-pill">⚖️ SLA &amp; Commercial Terms</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <!-- SECTION 1: PARTNER ADVANTAGES (POINT-BY-POINT 6 CARDS) -->
-    <div class="division-section div-purple" id="partner-advantages">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">🤝 Partner Advantages &amp; Pooling Framework</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-purple">CLRA Form V</span>
-            <span class="div-tag div-tag-purple">Escrow Payouts</span>
-            <span class="div-tag div-tag-purple">Zero Liability</span>
+    <!-- DIVISION 1: PARTNER ADVANTAGES -->
+    <section class="svc-division-card" id="partner-advantages" style="border-top: 4px solid var(--purple);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="B2B Subcontractor Collaboration" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>🌟</span> Partner Advantages &amp; Pooling Framework
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">CLRA Form V</span>
+            <span class="svc-badge-pill">Escrow Payouts</span>
+            <span class="svc-badge-pill">Zero Liability</span>
           </div>
         </div>
-        <p class="division-overview">
-          Accelerate your contracting revenue, eliminate labor idle-time, and bid for Tier-1 industrial EPC tenders with complete legal, operational, and commercial backing.
+      </div>
+
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
+          Accelerate your contracting revenue, eliminate labor idle-time, and bid for Tier-1 industrial EPC tenders with complete legal, operational, and commercial backing under standardized Annual Rate Contracts (ARC).
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">1. Joint Venture Bidding &amp; Tenders</h3>
+              <span class="svc-role-code">MEGA TENDERS</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">🏆 Tier-1 Plant Access:</span><span class="svc-field-val">Participate in high-value bids across NTPC, Reliance, IOCL, L&amp;T &amp; BHEL.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">🛡️ EMD &amp; BG Relief:</span><span class="svc-field-val">Eliminate balance-sheet limits by bidding through our consortium framework.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">📈 Bulk Pooling Strength:</span><span class="svc-field-val">Present combined capability of 100 to 500+ trades without capacity strain.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">2. Guaranteed Timely Billing</h3>
+              <span class="svc-role-code">7-10th PAYOUTS</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">⚡ Prompt Monthly Clearance:</span><span class="svc-field-val">Billing cleared strictly between 7th to 10th of every month without client delays.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">💳 Direct Wage Flow:</span><span class="svc-field-val">On-time electronic bank disbursement directly safeguarding labor stability.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">🤝 Zero Hidden Deductions:</span><span class="svc-field-val">Transparent rate contract with zero unexpected commissions or billing cuts.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">3. Complete Statutory Shield</h3>
+              <span class="svc-role-code">CLRA BACKED</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">📋 Contract Labor Cover:</span><span class="svc-field-val">Complete Form-V issuance and formal state labor department documentation.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">📊 EPFO &amp; ESIC Auditing:</span><span class="svc-field-val">Monthly ECR challan verification ensuring 100% statutory employer compliance.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">🔒 Zero Legal Liability:</span><span class="svc-field-val">Protection against co-employer claims or unexpected site industrial disputes.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">4. Seamless Interstate Logistics</h3>
+              <span class="svc-role-code">RAPID TRANSIT</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">🚌 Corridor Mobilization:</span><span class="svc-field-val">Direct train and bus batch transit from UP, Bihar, MP, Odisha &amp; Bengal labor hubs.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">🛂 Police Clearance:</span><span class="svc-field-val">Fast-track Aadhaar KYC and CISF/plant security gate pass processing.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">⛺ Ready Infrastructure:</span><span class="svc-field-val">Clean labor quarters, RO drinking water, electricity &amp; mess arrangements.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">5. 365-Day Workforce Continuity</h3>
+              <span class="svc-role-code">ZERO IDLE TIME</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">🔄 Immediate Redeloyment:</span><span class="svc-field-val">Seamless gang transfer from completed shutdowns directly to active sites.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">👥 Zero Craft Dispersion:</span><span class="svc-field-val">Your trained 6G welders, riggers &amp; fitters remain employed and retained with your firm.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">💰 Off-Season Security:</span><span class="svc-field-val">Annual maintenance contracts (AMC) keeping master gangs revenue-generating year-round.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">6. Transparent Governance &amp; Helpdesk</h3>
+              <span class="svc-role-code">24x7 DESK</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">📝 Written Rate Contracts:</span><span class="svc-field-val">Pre-agreed fixed daily man-day wage schedules before field mobilization starts.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">⏱️ Independent Time-Keeping:</span><span class="svc-field-val">Biometric site attendance logs and daily verified supervisor muster-roll sign-offs.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">🤝 Dedicated Manager:</span><span class="svc-field-val">Single-window resolution for site issues, billing questions, and gang expansions.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-action-footer">
+          <a href="#partner-form" class="btn-card btn-card-purple" style="width:auto; padding:0 22px;">📝 Register as Partner Agency</a>
+          <a href="tel:+917307091677" class="btn-card btn-card-primary" style="width:auto; padding:0 22px;">📞 Call Partnership Desk</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISION 2: CAPACITY TIERS -->
+    <section class="svc-division-card" id="partner-tiers" style="border-top: 4px solid var(--blue);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Subcontractor Capacity Tiers" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>🏗️</span> Subcontractor Specialization Tiers
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">Audited Trades</span>
+            <span class="svc-badge-pill">Gang Structuring</span>
+          </div>
+        </div>
       </div>
 
-      <div class="advantages-grid">
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">1. Joint Venture Bidding &amp; Tenders</h3>
-            <span class="advantage-card-badge">MEGA TENDERS</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Tier-1 Plant Access:</strong> Participate in high-value bids across NTPC, Reliance, IOCL, L&amp;T &amp; BHEL.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>EMD &amp; BG Relief:</strong> Eliminate balance-sheet limits by bidding through our consortium framework.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Bulk Pooling Strength:</strong> Present combined capability of 100 to 500+ trades without individual capacity strain.</span></li>
-          </ul>
-          <div class="advantage-tag">🏆 Protected Consortium Margin Agreement</div>
-        </div>
-
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">2. Guaranteed Timely Billing</h3>
-            <span class="advantage-card-badge">7-10th PAYOUTS</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Prompt Monthly Clearance:</strong> Billing cleared strictly between 7th to 10th of every month without client delays.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Direct Labor Wage Flow:</strong> On-time electronic bank disbursement directly safeguarding labor stability.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Zero Arbitrary Deductions:</strong> Transparent rate contract with zero unexpected commissions or billing cuts.</span></li>
-          </ul>
-          <div class="advantage-tag">⚡ Escrow Backed Working Capital</div>
-        </div>
-
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">3. Complete Statutory Shield</h3>
-            <span class="advantage-card-badge">CLRA BACKED</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Contract Labor (CLRA) Cover:</strong> Complete Form-V issuance and formal state labor department documentation.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>EPFO &amp; ESIC Auditing:</strong> Monthly ECR challan verification ensuring 100% statutory employer compliance.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Zero Legal Liability:</strong> Protection against co-employer claims or unexpected site industrial disputes.</span></li>
-          </ul>
-          <div class="advantage-tag">🔒 Comprehensive Workmen Compensation</div>
-        </div>
-
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">4. Seamless Interstate Logistics</h3>
-            <span class="advantage-card-badge">RAPID TRANSIT</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Corridor Mobilization:</strong> Direct train and bus batch transit from UP, Bihar, MP, Odisha &amp; Bengal labor hubs.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Police Verification Clearance:</strong> Fast-track Aadhaar KYC and CISF/plant security gate pass processing.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Ready Camp Infrastructure:</strong> Clean labor quarters, RO drinking water, electricity &amp; mess arrangements.</span></li>
-          </ul>
-          <div class="advantage-tag">🚌 48-Hour Site Entry Protocol</div>
-        </div>
-
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">5. 365-Day Workforce Continuity</h3>
-            <span class="advantage-card-badge">ZERO IDLE TIME</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Immediate Project Re-deployment:</strong> Seamless gang transfer from completed shutdowns directly to active sites.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Zero Craft Dispersion:</strong> Your trained 6G welders, riggers &amp; fitters remain employed and retained with your firm.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Off-Season Revenue Security:</strong> Annual maintenance contracts (AMC) keeping master gangs revenue-generating year-round.</span></li>
-          </ul>
-          <div class="advantage-tag">🔄 Consistent Year-Round Billing</div>
-        </div>
-
-        <div class="advantage-card">
-          <div class="advantage-card-head">
-            <h3 class="advantage-card-title">6. Transparent Governance &amp; Helpdesk</h3>
-            <span class="advantage-card-badge">24x7 DESK</span>
-          </div>
-          <ul class="advantage-points-list">
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Written Rate Contracts (ARC):</strong> Pre-agreed fixed daily man-day wage schedules before field mobilization starts.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Independent Time-Keeping:</strong> Biometric site attendance logs and daily verified supervisor muster-roll sign-offs.</span></li>
-            <li class="advantage-point"><span class="advantage-check">✔</span><span><strong>Dedicated Partner Manager:</strong> Single-window resolution for site issues, billing questions, and gang expansions.</span></li>
-          </ul>
-          <div class="advantage-tag">🤝 Dedicated Contractor Relationship Lead</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECTION 2: 4 STRUCTURED PARTNERSHIP TIERS -->
-    <div class="division-section div-purple" id="partner-tiers">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">🏗️ Subcontractor Specialization Tiers</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-purple">Audited Trades</span>
-            <span class="div-tag div-tag-purple">Gang Structuring</span>
-          </div>
-        </div>
-        <p class="division-overview">
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
           Categorized contractor pools matching technical project scopes across thermal power plants, hydrocarbon refineries, cement units, and cross-country pipelines.
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Tier A: Shutdown Turnaround Gangs</h3>
+              <span class="svc-role-code">SHUTDOWN-GANG</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">Mobilization Pool:</span><span class="svc-field-val">100 to 500+ workers for 15-45 day rapid turnaround windows.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Core Trades Supplied:</span><span class="svc-field-val">Boiler tube welders, mechanical fitters, hydro-test crews &amp; helpers.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Operational SLA:</span><span class="svc-field-val">Interstate batch transit within 48 to 72 hours of work order issuance.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Tier B: Mechanical &amp; Rigging Contractors</h3>
+              <span class="svc-role-code">RIGGING-MECH</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">Mobilization Pool:</span><span class="svc-field-val">30 to 100+ certified precision technicians and heavy lifting crews.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Core Trades Supplied:</span><span class="svc-field-val">SWL certified riggers (L1–L3), crane marshals &amp; 6G ASME pipe welders.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Quality Standard:</span><span class="svc-field-val">100% Radiographic Test (RT) pass rate &amp; tandem lifting safety records.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Tier C: Civil &amp; Switchyard Electrical</h3>
+              <span class="svc-role-code">CIVIL-ELEC</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">Mobilization Pool:</span><span class="svc-field-val">25 to 75 skilled civil trades, wiremen &amp; licensed supervisors.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Core Trades Supplied:</span><span class="svc-field-val">HT/LT licensed electricians, cable tray jointers, shuttering carpenters.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Quality Standard:</span><span class="svc-field-val">Strict LOTO protocols, total station survey precision &amp; cube testing.</span></div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Tier D: Regional Labor Cooperatives</h3>
+              <span class="svc-role-code">REGIONAL-POOL</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row"><span class="svc-field-label">Mobilization Pool:</span><span class="svc-field-val">50 to 300+ semi-skilled &amp; general technical industrial workforce.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Core Trades Supplied:</span><span class="svc-field-val">Gas cutters, bevel grinders, scaffolding staging crews &amp; site labor.</span></div>
+              <div class="svc-field-row"><span class="svc-field-label">Quality Standard:</span><span class="svc-field-val">100% Aadhaar verification, local police clearance &amp; gate-pass readiness.</span></div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="role-cards-grid">
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Tier A: Shutdown Turnaround Gangs</h3>
-            <span class="role-card-code">SHUTDOWN-GANG</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item"><span class="role-info-lbl">Mobilization Pool:</span><span class="role-info-val">100 to 500+ workers for 15-45 day rapid turnaround windows.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Core Trades Supplied:</span><span class="role-info-val">Boiler tube welders, mechanical fitters, hydro-test crews &amp; helpers.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Operational SLA:</span><span class="role-info-val">Interstate batch transit within 48 to 72 hours of work order issuance.</span></div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Tier B: Mechanical &amp; Rigging Contractors</h3>
-            <span class="role-card-code">RIGGING-MECH</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item"><span class="role-info-lbl">Mobilization Pool:</span><span class="role-info-val">30 to 100+ certified precision technicians and heavy lifting crews.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Core Trades Supplied:</span><span class="role-info-val">SWL certified riggers (L1–L3), crane marshals &amp; 6G ASME pipe welders.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Quality Standard:</span><span class="role-info-val">100% Radiographic Test (RT) pass rate &amp; tandem lifting safety records.</span></div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Tier C: Civil &amp; Switchyard Electrical</h3>
-            <span class="role-card-code">CIVIL-ELEC</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item"><span class="role-info-lbl">Mobilization Pool:</span><span class="role-info-val">25 to 75 skilled civil trades, wiremen &amp; licensed supervisors.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Core Trades Supplied:</span><span class="role-info-val">HT/LT licensed electricians, cable tray jointers, shuttering carpenters.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Quality Standard:</span><span class="role-info-val">Strict LOTO protocols, total station survey precision &amp; cube testing.</span></div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Tier D: Regional Labor Cooperatives</h3>
-            <span class="role-card-code">REGIONAL-POOL</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item"><span class="role-info-lbl">Mobilization Pool:</span><span class="role-info-val">50 to 300+ semi-skilled &amp; general technical industrial workforce.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Core Trades Supplied:</span><span class="role-info-val">Gas cutters, bevel grinders, scaffolding staging crews &amp; site labor.</span></div>
-            <div class="role-info-item"><span class="role-info-lbl">Quality Standard:</span><span class="role-info-val">100% Aadhaar verification, local police clearance &amp; gate-pass readiness.</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECTION 3: 4-STEP ONBOARDING FRAMEWORK (REDESIGNED PROCESS CARDS - NO MORE TEXT WALL!) -->
-    <div class="division-section div-blue" id="partner-workflow">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">⚡ 4-Step Vendor Onboarding &amp; Deployment Framework</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-blue">Fast-Track Verification</span>
-            <span class="div-tag div-tag-blue">Direct Site Mobilization</span>
-          </div>
-        </div>
-        <p class="division-overview">
-          Transparent, fast-track evaluation guaranteeing statutory security, verified craftsman credentials, and timely escrow payouts.
-        </p>
-      </div>
+    <!-- SECTION 3: 4-STEP ONBOARDING WORKFLOW -->
+    <section class="rich-section" id="partner-workflow">
+      <h2 class="rich-section-title">⚡ 4-Step Vendor Onboarding &amp; Deployment Framework</h2>
+      <p class="rich-section-sub">Transparent, fast-track evaluation guaranteeing statutory security, verified craftsman credentials, and timely escrow payouts.</p>
 
       <div class="workflow-steps-flow">
-        <!-- STEP 1 -->
         <div class="workflow-card step-1">
           <div class="workflow-card-header">
-            <div class="workflow-badge step-badge-purple">
-              <span>📋</span>
-              <span>STEP 01</span>
-            </div>
+            <div class="workflow-badge step-badge-purple"><span>📋</span><span>STEP 01</span></div>
             <span class="workflow-time-tag">Within 24 Hours</span>
           </div>
           <h3 class="workflow-title">Registration &amp; Statutory Audit</h3>
-          <p class="workflow-desc">
-            Online contractor profile review, active GST verification, state labor license validity checks, and audited EPFO/ESIC remittance verification.
-          </p>
-          <div class="workflow-footer-pill">
-            ✔ Statutory Clean Chit &amp; Legal Compliance Verified
-          </div>
+          <p class="workflow-desc">Online contractor profile review, active GST verification, state labor license validity checks, and audited EPFO/ESIC remittance verification.</p>
+          <div class="workflow-footer-pill">✔ Statutory Clean Chit &amp; Legal Compliance Verified</div>
         </div>
 
-        <!-- STEP 2 -->
         <div class="workflow-card step-2">
           <div class="workflow-card-header">
-            <div class="workflow-badge step-badge-blue">
-              <span>🔍</span>
-              <span>STEP 02</span>
-            </div>
+            <div class="workflow-badge step-badge-blue"><span>🔍</span><span>STEP 02</span></div>
             <span class="workflow-time-tag">Direct Trade Audit</span>
           </div>
           <h3 class="workflow-title">Capacity &amp; Gang Assessment</h3>
-          <p class="workflow-desc">
-            Evaluation of your active craftsman roster, trade certificates (ITI, Welder Qualification Cards, Rigging Licenses), and historical plant safety track record.
-          </p>
-          <div class="workflow-footer-pill">
-            ✔ Skill Tested &amp; Gang Composition Confirmed
-          </div>
+          <p class="workflow-desc">Evaluation of your active craftsman roster, trade certificates (ITI, Welder Qualification Cards, Rigging Licenses), and historical plant safety track record.</p>
+          <div class="workflow-footer-pill">✔ Skill Tested &amp; Gang Composition Confirmed</div>
         </div>
 
-        <!-- STEP 3 -->
         <div class="workflow-card step-3">
           <div class="workflow-card-header">
-            <div class="workflow-badge step-badge-green">
-              <span>📝</span>
-              <span>STEP 03</span>
-            </div>
+            <div class="workflow-badge step-badge-green"><span>📝</span><span>STEP 03</span></div>
             <span class="workflow-time-tag">Rate Contract (ARC)</span>
           </div>
           <h3 class="workflow-title">Rate Contract &amp; Joint Bidding</h3>
-          <p class="workflow-desc">
-            Execution of Annual Rate Contracts (ARC), pre-agreed fixed man-day wage schedules, and consortium Joint Venture (JV) subcontracting agreements.
-          </p>
-          <div class="workflow-footer-pill">
-            ✔ Fixed Transparent Rates with Zero Hidden Cuts
-          </div>
+          <p class="workflow-desc">Execution of Annual Rate Contracts (ARC), pre-agreed fixed man-day wage schedules, and consortium Joint Venture (JV) subcontracting agreements.</p>
+          <div class="workflow-footer-pill">✔ Fixed Transparent Rates with Zero Hidden Cuts</div>
         </div>
 
-        <!-- STEP 4 -->
         <div class="workflow-card step-4">
           <div class="workflow-card-header">
-            <div class="workflow-badge step-badge-amber">
-              <span>🚀</span>
-              <span>STEP 04</span>
-            </div>
+            <div class="workflow-badge step-badge-amber"><span>🚀</span><span>STEP 04</span></div>
             <span class="workflow-time-tag">Interstate Dispatch</span>
           </div>
           <h3 class="workflow-title">Site Transit &amp; Escrow Billing</h3>
-          <p class="workflow-desc">
-            Interstate batch deployment with biometric gate-pass logistics, CISF plant entry clearance, verified daily muster rolls, and guaranteed monthly billing settlements.
-          </p>
-          <div class="workflow-footer-pill">
-            ✔ 100% Punctual Monthly Wage Disbursal Guaranteed
-          </div>
+          <p class="workflow-desc">Interstate batch deployment with biometric gate-pass logistics, CISF plant entry clearance, verified daily muster rolls, and guaranteed monthly billing settlements.</p>
+          <div class="workflow-footer-pill">✔ 100% Punctual Monthly Wage Disbursal Guaranteed</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- SECTION 4: COMPACT CENTERED REGISTRATION FORM (AMPLE MARGINS) -->
+    <!-- SECTION 4: COMPACT CENTERED REGISTRATION FORM -->
     <div class="form-card-wrapper" id="partner-form" style="border-top:4px solid var(--purple);">
       <h3 style="font-size:17px; color:var(--purple); margin-bottom:4px; font-weight:800;">🤝 Contractor &amp; Vendor Subcontracting Registration</h3>
       <p style="color:var(--text-muted); font-size:13px; margin-bottom:18px;">Enroll your contracting agency for joint project bids, interstate workforce pooling, and turnkey industrial tenders.</p>
@@ -414,7 +613,7 @@
     </div>
 
     <!-- SECTION 5: COMMERCIAL & STATUTORY SLA MATRIX -->
-    <div class="division-section" id="partner-sla" style="border-top:4px solid var(--purple);">
+    <section class="division-section" id="partner-sla" style="border-top:4px solid var(--purple);">
       <div class="division-header-wrap">
         <h2 class="division-title">⚖️ Partner Commercial SLA &amp; Statutory Protection Matrix</h2>
         <p class="division-overview">
@@ -466,7 +665,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   </main>
 
   <script>
@@ -579,52 +778,6 @@
       dLinks.forEach(function(link) {
         link.addEventListener('click', function() { toggleMenu(false); });
       });
-    }
-  </script>
-
-  <script>
-    var openTrigger = document.getElementById('openDrawerTrigger');
-    var closeTrigger = document.getElementById('closeDrawerTrigger');
-    var drawerEl = document.getElementById('megaDrawer');
-    var backdropEl = document.getElementById('drawerBackdrop');
-
-    function toggleMenu(isOpen) {
-      if (isOpen) {
-        drawerEl.classList.add('open');
-        backdropEl.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      } else {
-        drawerEl.classList.remove('open');
-        backdropEl.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-    if (openTrigger) openTrigger.addEventListener('click', function() { toggleMenu(true); });
-    if (closeTrigger) closeTrigger.addEventListener('click', function() { toggleMenu(false); });
-    if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
-
-    // Auto close drawer when any link inside it is clicked (fixes in-page anchor freeze)
-    if (drawerEl) {
-      var dLinks = drawerEl.querySelectorAll('a');
-      dLinks.forEach(function(link) {
-        link.addEventListener('click', function() { toggleMenu(false); });
-      });
-    }
-
-    // 2.5-Second Slider Pause & Auto-Resume Controller
-    var sliderTrack = document.querySelector('.slider-track');
-    if (sliderTrack) {
-      var resumeTimeout;
-      function pauseAndAutoResume() {
-        sliderTrack.style.animationPlayState = 'paused';
-        clearTimeout(resumeTimeout);
-        resumeTimeout = setTimeout(function() {
-          sliderTrack.style.animationPlayState = 'running';
-        }, 2500);
-      }
-      sliderTrack.addEventListener('mouseenter', pauseAndAutoResume);
-      sliderTrack.addEventListener('touchstart', pauseAndAutoResume, { passive: true });
-      sliderTrack.addEventListener('click', pauseAndAutoResume);
     }
   </script>
 
