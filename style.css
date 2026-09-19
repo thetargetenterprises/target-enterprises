@@ -938,3 +938,115 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 640px) {
   .advantages-grid { grid-template-columns: 1fr !important; }
 }
+
+
+/* ==========================================================================
+   ENHANCED 4-STEP WORKFLOW CARDS & GENEROUS SECTION SPACING
+   ========================================================================== */
+.workflow-steps-flow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 2.5vw, 20px);
+  margin: 18px 0 24px 0;
+}
+
+.workflow-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(16px, 3vw, 22px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.workflow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.workflow-card.step-1 { border-left: 5px solid var(--purple); }
+.workflow-card.step-2 { border-left: 5px solid var(--blue); }
+.workflow-card.step-3 { border-left: 5px solid var(--green); }
+.workflow-card.step-4 { border-left: 5px solid var(--amber); }
+
+.workflow-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.workflow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 11.5px;
+  letter-spacing: 0.4px;
+}
+.step-badge-purple { background: rgba(124, 58, 237, 0.1); color: var(--purple); }
+.step-badge-blue { background: rgba(2, 132, 199, 0.1); color: var(--blue); }
+.step-badge-green { background: rgba(5, 150, 105, 0.1); color: var(--green); }
+.step-badge-amber { background: rgba(217, 119, 6, 0.1); color: var(--amber); }
+
+.workflow-time-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--surface-subtle);
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.workflow-title {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.workflow-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.workflow-footer-pill {
+  margin-top: auto;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #334155;
+  background: var(--surface-subtle);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  line-height: 1.35;
+}
+
+/* SECTION SPACING EXPANSION */
+.division-section {
+  margin-bottom: 38px !important;
+}
+.rich-section {
+  margin: 38px 0 !important;
+}
+.form-card-wrapper {
+  margin-bottom: 38px !important;
+}
+
+@media (max-width: 768px) {
+  .workflow-steps-flow {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
