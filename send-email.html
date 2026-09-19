@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>Send Official Email | Target Enterprises Placement Office</title>
-  <link rel="stylesheet" href="style.css?v=2026.12" />
+  <link rel="stylesheet" href="style.css?v=2026.09.20" />
 </head>
 <body>
 
@@ -66,7 +66,7 @@
     <div class="webmail-composer-card">
       <div class="webmail-top-strip">
         <h3><span class="pulse-green-dot"></span> Secure Dispatch to Corporate Desk</h3>
-        <span style="font-size:10.5px; font-weight:700; color:var(--text-muted);">SSL 256-Bit Encrypted</span>
+        <span style="font-size:11px; font-weight:700; color:var(--text-muted);">SSL 256-Bit Encrypted</span>
       </div>
 
       <div class="webmail-inner-padding">
@@ -75,7 +75,7 @@
           <span class="webmail-to-val">Target Enterprises Corporate Desk</span>
         </div>
 
-        <form id="emailConsoleForm" class="form-grid-2col" style="margin-top:10px;" enctype="multipart/form-data">
+        <form id="emailConsoleForm" class="form-grid-2col" style="margin-top:12px;" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="[OFFICIAL INQUIRY] - Direct Webmail Console Dispatch" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
@@ -160,7 +160,7 @@
       .catch(function(err) {
         eAlert.className = "feedback-alert alert-fail";
         eAlert.style.display = "block";
-        eAlert.innerHTML = "⚠️ Transmission issue. Please contact our hotline directly at +91 7307091677.";
+        eAlert.innerHTML = "⚠️ Error sending message. Please contact our hotline directly at +91 7307091677.";
       })
       .finally(function() {
         eBtn.disabled = false;
@@ -202,7 +202,7 @@
         </div>
       </div>
       <div class="footer-bottom-bar">
-        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved.</span>
+        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved. Pan-India Workforce Mobilization.</span>
         <span>Compliant with Factories Act 1948, CLRA Act 1970, EPFO, ESIC &amp; State Labour Regulations.</span>
       </div>
     </div>
