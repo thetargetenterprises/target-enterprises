@@ -6,7 +6,7 @@
   <title>Contact Placement Office | Target Enterprises Placement Office</title>
   <meta name="description" content="Contact Target Enterprises placement headquarters in Sonbhadra (UP) and regional mobilization corridors." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css?v=2026.09.28" />
+  <link rel="stylesheet" href="style.css?v=2026.09.21" />
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <div class="brand-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <div class="brand-details">
           <a href="index.html" class="brand-title">TARGET <span>ENTERPRISES</span></a>
-          <span class="brand-subtitle">Placement Office • Sonbhadra (U.P.)</span>
+          <span class="brand-subtitle">PLACEMENT OFFICE • SONBHADRA (U.P.)</span>
         </div>
       </div>
 
@@ -214,7 +214,7 @@
         </div>
       </div>
       <div class="footer-bottom-bar">
-        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved. Pan-India Workforce Mobilization.</span>
+        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved.</span>
         <span>Compliant with Factories Act 1948, CLRA Act 1970, EPFO, ESIC &amp; State Labour Regulations.</span>
       </div>
     </div>
@@ -248,20 +248,11 @@
     if (closeTrigger) closeTrigger.addEventListener('click', function() { toggleMenu(false); });
     if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
 
-    // SLIDER AUTO-RESUME CONTROLLER (2.5 SECONDS EXACT PAUSE)
-    var sliderTrack = document.querySelector('.slider-track');
-    if (sliderTrack) {
-      var resumeTimeout;
-      function pauseAndAutoResume() {
-        sliderTrack.style.animationPlayState = 'paused';
-        clearTimeout(resumeTimeout);
-        resumeTimeout = setTimeout(function() {
-          sliderTrack.style.animationPlayState = 'running';
-        }, 2500);
-      }
-      sliderTrack.addEventListener('mouseenter', pauseAndAutoResume);
-      sliderTrack.addEventListener('touchstart', pauseAndAutoResume, { passive: true });
-      sliderTrack.addEventListener('click', pauseAndAutoResume);
+    if (drawerEl) {
+      var dLinks = drawerEl.querySelectorAll('a');
+      dLinks.forEach(function(link) {
+        link.addEventListener('click', function() { toggleMenu(false); });
+      });
     }
   </script>
 
