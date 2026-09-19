@@ -7,6 +7,218 @@
   <meta name="description" content="Comprehensive trade qualifications, mandatory statutory certifications, SOP protocols, and deployment standards across heavy industrial divisions." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css?v=2026.09.30" />
+  
+<style>
+.services-jump-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 8px 4px 16px 4px;
+  margin-bottom: 28px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.services-jump-bar::-webkit-scrollbar { display: none; }
+.jump-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.jump-pill:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+}
+
+.svc-division-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.07);
+  scroll-margin-top: 65px;
+  transition: box-shadow 0.2s ease;
+}
+.svc-division-card:hover {
+  box-shadow: 0 8px 28px -4px rgba(15, 23, 42, 0.1);
+}
+
+.svc-banner-header {
+  position: relative;
+  height: 160px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 24px;
+}
+.svc-banner-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.svc-banner-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.45) 100%);
+  z-index: 2;
+}
+.svc-banner-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.svc-banner-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.svc-banner-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.svc-badge-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.svc-card-body {
+  padding: clamp(18px, 3vw, 28px);
+}
+.svc-overview-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.svc-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.svc-role-box {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 16px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.svc-role-box:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(15,23,42,0.06);
+  border-color: var(--primary);
+}
+
+.svc-role-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+.svc-role-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+.svc-role-code {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.svc-role-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.svc-field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.svc-field-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.svc-field-val {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+.svc-action-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .svc-banner-header { height: 130px; padding: 16px; }
+  .svc-roles-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+
 </head>
 <body>
 
@@ -21,7 +233,13 @@
       </div>
 
       <ul class="main-nav-links">
-        <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li><li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li><li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li><li><a href="services.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li><li><a href="partners.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li><li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights & Blog</span></a></li><li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
+        <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li>
+        <li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li>
+        <li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li>
+        <li><a href="services.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li>
+        <li><a href="partners.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li>
+        <li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights &amp; Blog</span></a></li>
+        <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
       </ul>
 
       <div class="header-action-group">
@@ -42,7 +260,13 @@
       <button class="drawer-close" id="closeDrawerTrigger" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <ul class="drawer-links-list">
-      <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li><li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li><li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li><li><a href="services.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li><li><a href="partners.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li><li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights & Blog</span></a></li><li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
+      <li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> <span>Home</span></a></li>
+      <li><a href="hire-manpower.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> <span>Hire Workforce</span></a></li>
+      <li><a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg> <span>Job Openings</span></a></li>
+      <li><a href="services.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> <span>Trades Matrix</span></a></li>
+      <li><a href="partners.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L17 12"></path><path d="m2 13 6 6"></path></svg> <span>Partners</span></a></li>
+      <li><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> <span>Insights &amp; Blog</span></a></li>
+      <li><a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> <span>Contact</span></a></li>
       <li>
         <a href="send-email.html" style="background:var(--primary-subtle); color:var(--primary);">
           <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <span>Send Official Email</span>
@@ -56,523 +280,552 @@
     </div>
   </div>
 
-  <section class="hero-wrapper">
+  <section class="hero-wrapper" style="padding-bottom: 12px;">
     <div class="container">
-      <div class="pill-badge" style="color:var(--amber); border-color:rgba(217,119,6,0.25);"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Technical Trades Knowledge Matrix</div>
-      <h1 class="hero-headline">Industrial <span>Trades Matrix &amp; Eligibility</span> Standards</h1>
-      <p class="hero-subline">Comprehensive craft qualifications, mandatory statutory certifications, SOP inspection checklists, and deployment pathways across heavy industrial, power, and refinery sectors.</p>
+      <div class="pill-badge" style="color:var(--amber); border-color:rgba(217,119,6,0.25);">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg> Technical Trades Directory &amp; Standards
+      </div>
+      <h1 class="hero-headline">Industrial <span>Trades Matrix &amp; Standards</span></h1>
+      <p class="hero-subline">
+        Comprehensive craft qualifications, mandatory statutory certifications, SOP inspection checklists, and deployment pathways across heavy industrial, power, and hydrocarbon refinery sectors.
+      </p>
 
-      <!-- QUICK JUMP ANCHORS BAR -->
-      <div class="anchor-nav-bar">
-        <a href="#ehs-safety" class="anchor-pill">🛡️ EHS Safety Division</a>
-        <a href="#welding-6g" class="anchor-pill">⚡ 6G Pipe Welding</a>
-        <a href="#heavy-rigging" class="anchor-pill">🏗️ Heavy Crane Rigging</a>
-        <a href="#turnkey-plants" class="anchor-pill">⚙️ Turnkey Plant Staffing</a>
-        <a href="#testing-sla" class="anchor-pill">🧪 Trade Testing SLA</a>
-        <a href="#quick-matrix" class="anchor-pill">📊 Master Trade Matrix</a>
+      <!-- FLOATING JUMP ANCHORS BAR -->
+      <div class="services-jump-bar">
+        <a href="#ehs-safety" class="jump-pill">🛡️ EHS Safety Division</a>
+        <a href="#welding-6g" class="jump-pill">⚡ 6G Pipe Welding</a>
+        <a href="#heavy-rigging" class="jump-pill">🏗️ Heavy Crane Rigging</a>
+        <a href="#turnkey-plants" class="jump-pill">⚙️ Turnkey Plant Staffing</a>
+        <a href="#testing-sla" class="jump-pill">🧪 Trade Testing SLA</a>
+        <a href="#quick-matrix" class="jump-pill">📊 Master Comparison Matrix</a>
       </div>
     </div>
   </section>
 
   <main class="container">
-    <!-- DIVISION 1: INDUSTRIAL SAFETY (EHS) -->
-    <div class="division-section div-green" id="ehs-safety">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">🛡️ Industrial Safety &amp; EHS Division</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-green">Factories Act Sec 40B</span>
-            <span class="div-tag div-tag-green">Zero-Incident SOP</span>
-            <span class="div-tag div-tag-green">DGMS / DIS Standards</span>
+    <!-- DIVISION 1: EHS SAFETY -->
+    <section class="svc-division-card" id="ehs-safety" style="border-top: 4px solid var(--green);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="EHS Safety Officers" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>🛡️</span> Industrial Safety &amp; EHS Division
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">Factories Act Sec 40B</span>
+            <span class="svc-badge-pill">Zero-Incident Protocol</span>
           </div>
         </div>
-        <p class="division-overview">
-          Frontline environmental health and hazard prevention teams ensuring strict compliance with Permit-to-Work (PTW) protocols, HIRA assessments, and continuous toxic/flammable gas monitoring in high-pressure thermal, chemical, and petrochemical plants.
+      </div>
+
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
+          Frontline environmental health and hazard prevention teams ensuring 100% compliance with Permit-to-Work (PTW) protocols, quantitative HIRA risk assessments, continuous toxic/flammable gas monitoring, and emergency rescue readiness in high-pressure thermal, chemical, and petrochemical complexes.
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--green);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Safety Officer (EHS Lead)</h3>
+              <span class="svc-role-code">ADIS / NEBOSH</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">ADIS (State Technical Board) / RLI / CLI / NEBOSH IGC or B.Sc in Fire &amp; Safety.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">PTW issuance, daily JSA preparation, plant hazard audits, mock emergency drills &amp; TBT.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Statutory Compliance:</span>
+                <span class="svc-field-val">Factories Act 1948 (Section 40B) plant safety officer management code.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 to 72 Hours</strong> (Verified background &amp; DIS certified).</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--green);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Safety Supervisor &amp; Auditor</h3>
+              <span class="svc-role-code">SAFETY-SUP</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Diploma in Industrial Safety / Graduate with 2+ years field inspection experience.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Height work staging audits, excavation barricading, PPE enforcement &amp; unsafe act reporting.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Statutory Compliance:</span>
+                <span class="svc-field-val">Lockout-Tagout (LOTO) energy isolation &amp; hot work safety clearances.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>24 to 48 Hours</strong> with verified police KYC.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--green);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Confined Space Safety Sentry</h3>
+              <span class="svc-role-code">HSE-SENTRY</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">10+2 with accredited 6-month industrial safety and first-aid certification.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Vessel manhole standby watch, entrant logging, forced ventilation checking &amp; siren alert.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Statutory Compliance:</span>
+                <span class="svc-field-val">Calibrated 4-gas detector continuous atmospheric sampling (O2, LEL, CO, H2S).</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>Immediate Batch Transit</strong> (Ready standby gangs).</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--green);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Fire Safety Officer &amp; Crew</h3>
+              <span class="svc-role-code">FIRE-RESCUE</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">BE / B.Tech Fire &amp; Safety or Sub-Officer Course from NFSC Nagpur / State Academy.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Hydrant ring main testing, foam bowser operations, breathing apparatus (SCBA) drills.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Statutory Compliance:</span>
+                <span class="svc-field-val">State Fire Prevention and Life Safety Act &amp; TAC regulations.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 Hours</strong> (Turnkey emergency squads).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-action-footer">
+          <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 22px;">🏢 Requisition EHS Team</a>
+          <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 22px;">👷 Apply for Safety Roles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISION 2: 6G WELDING -->
+    <section class="svc-division-card" id="welding-6g" style="border-top: 4px solid var(--blue);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="6G Pipe Pressure Welding" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>⚡</span> 6G Pipe &amp; Pressure Vessel Welding
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">ASME Section IX</span>
+            <span class="svc-badge-pill">100% RT Cleared</span>
+            <span class="svc-badge-pill">IBR Certified</span>
+          </div>
+        </div>
       </div>
 
-      <div class="role-cards-grid">
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Safety Officer (EHS Lead)</h3>
-            <span class="role-card-code">ADIS / NEBOSH</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">ADIS (State Technical Board) / RLI / CLI / NEBOSH IGC or B.Sc in Fire &amp; Safety.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">HIRA, daily JSA preparation, plant hazard auditing, mock emergency evacuation drills &amp; TBT.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Statutory Compliance:</span>
-              <span class="role-info-val">Factories Act 1948 (Section 40B) statutory plant safety management.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 to 72 Hours (Verified background &amp; DIS certified).</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Safety Supervisor &amp; Auditor</h3>
-            <span class="role-card-code">SAFETY-SUP</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Diploma in Industrial Safety / Graduate with 2+ years field inspection experience.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Height work staging audits, excavation barricading, PPE enforcement &amp; unsafe act reporting.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Statutory Compliance:</span>
-              <span class="role-info-val">Lockout-Tagout (LOTO) energy isolation &amp; hot work safety clearance.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">24 to 48 Hours with complete police clearance.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Confined Space Safety Sentry</h3>
-            <span class="role-card-code">HSE-SENTRY</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">10+2 Intermediate with accredited 6-month industrial safety and first-aid certification.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Vessel manhole standby watch, entrant logging, forced ventilation monitoring &amp; siren alert.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Statutory Compliance:</span>
-              <span class="role-info-val">Calibrated 4-gas detector continuous atmospheric checking (O2, LEL, CO, H2S).</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">Immediate Batch Transit (Ready Gangs).</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Fire Safety Officer &amp; Crew</h3>
-            <span class="role-card-code">FIRE-RESCUE</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">BE / B.Tech Fire &amp; Safety or Sub-Officer Course from NFSC Nagpur / State Fire Academy.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Hydrant ring main pressure tests, foam bowser operations, breathing apparatus (SCBA) drills.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Statutory Compliance:</span>
-              <span class="role-info-val">State Fire Prevention and Life Safety Measures Act &amp; TAC regulations.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 Hours (Turnkey emergency ready squads).</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="division-action-bar">
-        <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 20px;">🏢 Requisition EHS Team</a>
-        <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 20px;">👷 Apply for Safety Roles</a>
-      </div>
-    </div>
-
-    <!-- DIVISION 2: 6G PIPE WELDING -->
-    <div class="division-section div-blue" id="welding-6g">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">⚡ 6G Pipe &amp; Pressure Vessel Welding</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-blue">ASME Sec IX</span>
-            <span class="div-tag div-tag-blue">IBR Certified</span>
-            <span class="div-tag div-tag-blue">100% RT Pass Rate</span>
-          </div>
-        </div>
-        <p class="division-overview">
-          Master pressure pipe welders specialized in high-pressure alloy pipelines, superheater boiler coils, and cross-country hydrocarbon transit lines fixed at 45-degree inclinations without rotation.
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
+          Master pressure pipe welders and mechanical fitters specialized in superheater boiler tubes, high-pressure steam pipelines, and cross-country hydrocarbon transit lines fixed at 45-degree inclinations without rotation, requiring 100% radiographic quality joints.
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">6G TIG &amp; ARC Welder</h3>
+              <span class="svc-role-code">ASME-IX / IBR</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">ITI Welder with current Welder Performance Qualification (WPQ) card for 6G.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Argon TIG (GTAW) root pass followed by low-hydrogen E7018 multi-pass hot fill and capping.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Quality Standard:</span>
+                <span class="svc-field-val">Zero porosity, zero undercut under 100% Radiographic (RT) and Ultrasonic (UT) testing.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>Immediate</strong> (Pre-tested coupon passed welders).</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Mechanical Pipe Fitter</h3>
+              <span class="svc-role-code">P&amp;ID-FITTER</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">ITI Fitter (NCVT) with 3+ years experience in heavy industrial process piping.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Reading isometrics (P&amp;ID), pipe beveling, root gap fit-up, tacking &amp; flange alignment.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Quality Standard:</span>
+                <span class="svc-field-val">Strict flange perpendicularity, center-line accuracy &amp; zero distortion.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>24 to 48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Structural Steel Fabricator</h3>
+              <span class="svc-role-code">STRUCT-FAB</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Trade tested fabricator with structural drafting knowledge and 3+ years experience.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Heavy column erection, girder fit-ups, box section fabrication &amp; base plate layouts.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Quality Standard:</span>
+                <span class="svc-field-val">Strict diagonal tolerance &amp; plumb alignment as per IS 800 standards.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--blue);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Gas Cutter &amp; Bevel Grinder</h3>
+              <span class="svc-role-code">CUT-GRIND</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Trade tested specialist in oxy-acetylene/plasma cutting with 2+ years field experience.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Straight, circular, and bevel edge cutting with zero burrs &amp; root pass grinding.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Quality Standard:</span>
+                <span class="svc-field-val">Uniform 37.5-degree bevel angle preparation ready for immediate 6G root welding.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>Immediate Batch Availability</strong>.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-action-footer">
+          <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 22px;">🏢 Hire 6G Welders &amp; Fitters</a>
+          <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 22px;">👷 Apply as Welder / Fitter</a>
+        </div>
       </div>
-
-      <div class="role-cards-grid">
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">6G TIG &amp; ARC Welder</h3>
-            <span class="role-card-code">ASME-IX / IBR</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">ITI Welder with current Welder Performance Qualification (WPQ) card for 6G position.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Argon TIG (GTAW) root pass followed by low-hydrogen E7018 multi-pass hot fill and capping.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Quality Standard:</span>
-              <span class="role-info-val">Zero porosity, zero undercut under 100% Radiographic (RT) and Ultrasonic (UT) testing.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">Immediate (Pre-tested coupon passed welders).</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Mechanical Pipe Fitter</h3>
-            <span class="role-card-code">P&amp;ID-FITTER</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">ITI Fitter (NCVT) with 3+ years experience in heavy industrial process piping.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Reading piping isometrics (P&amp;ID), pipe beveling, root gap fit-up, tacking &amp; flange alignment.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Quality Standard:</span>
-              <span class="role-info-val">Flange perpendicularity, center-line accuracy &amp; zero weld gap distortion.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">24 to 48 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Structural Steel Fabricator</h3>
-            <span class="role-card-code">STRUCT-FAB</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Trade tested fabricator with structural drafting knowledge and 3+ years site experience.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Heavy column erection, girder fit-ups, box section fabrication &amp; base plate layout setting.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Quality Standard:</span>
-              <span class="role-info-val">Strict diagonal tolerance &amp; plumb alignment as per IS 800 standards.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Gas Cutter &amp; Bevel Grinder</h3>
-            <span class="role-card-code">CUT-GRIND</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Trade tested specialist in oxy-acetylene/plasma cutting with 2+ years field experience.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Straight, circular, and bevel edge cutting with zero burrs, slag cleaning &amp; root pass grinding.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Quality Standard:</span>
-              <span class="role-info-val">Uniform 37.5-degree bevel angle preparation ready for immediate 6G root welding.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">Immediate Batch Availability.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="division-action-bar">
-        <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 20px;">🏢 Hire 6G Welders &amp; Fitters</a>
-        <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 20px;">👷 Apply as Welder / Fitter</a>
-      </div>
-    </div>
+    </section>
 
     <!-- DIVISION 3: HEAVY CRANE RIGGING -->
-    <div class="division-section div-purple" id="heavy-rigging">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">🏗️ Heavy Crane Rigging &amp; Lifting Operations</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-purple">SWL Certified</span>
-            <span class="div-tag div-tag-purple">Tandem Lift Specialists</span>
-            <span class="div-tag div-tag-purple">Zero Incident History</span>
+    <section class="svc-division-card" id="heavy-rigging" style="border-top: 4px solid var(--purple);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80" alt="Heavy Crane Rigging Lifting" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>🏗️</span> Heavy Crane Rigging &amp; Lifting Operations
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">SWL Certified</span>
+            <span class="svc-badge-pill">Tandem Lift Specialists</span>
           </div>
         </div>
-        <p class="division-overview">
-          Engineering rigging crews specialized in heavy turbine erection, precast beam hoisting, boiler drum lifting, and multi-crane tandem maneuvers adhering strictly to load-slinging geometry and safety limits.
+      </div>
+
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
+          Precision engineering rigging crews specialized in heavy turbine generator erection, precast beam hoisting, boiler drum lifting, and multi-crane tandem maneuvers adhering strictly to load-slinging geometry and safe working load (SWL) limits.
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Certified Rigger (L1, L2, L3)</h3>
+              <span class="svc-role-code">SWL-RIGGER</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Govt. certified rigging license or ITI Rigging with 3+ years heavy plant lift experience.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Calculating Safe Working Loads (SWL), D-shackle inspection, spreader beams &amp; sling hitching.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Protocol:</span>
+                <span class="svc-field-val">Center of gravity (COG) calculation and load-angle stress factor compliance.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Crane Signalman &amp; Marshall</h3>
+              <span class="svc-role-code">SIGNAL-MARSHALL</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Certified signalman with radio protocol and visual hand signal competency certification.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Directing blind crane maneuvers, tail-rope tag management &amp; drop-zone clearance.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Protocol:</span>
+                <span class="svc-field-val">Dedicated two-way radio channels &amp; universal whistle emergency stops.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>24 to 48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Certified Scaffolder &amp; Lead</h3>
+              <span class="svc-role-code">CUPLOCK-BS12811</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Certified scaffolder trained in BS EN 12811 / IS 2750 with height medical clearance.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Heavy-duty staging erection, cantilever scaffolding, green-tag audit &amp; sole plate leveling.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Protocol:</span>
+                <span class="svc-field-val">100% tie-off dual shock-absorbing lanyards and full-body safety harnesses.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>Immediate Batch Transit</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--purple);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Heavy Equipment Operator</h3>
+              <span class="svc-role-code">HYDRA-CRANE</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Commercial heavy motor vehicle (HMV) driving license with crane operator certification.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Operation of Hydra (14T-25T), Crawler Crane, JCB &amp; Excavator in plant layouts.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Protocol:</span>
+                <span class="svc-field-val">Outrigger stability checks, safe load indicator (SLI) monitoring &amp; boom inspections.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-action-footer">
+          <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 22px;">🏢 Hire Rigging Crews</a>
+          <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 22px;">👷 Apply as Rigger</a>
+        </div>
       </div>
-
-      <div class="role-cards-grid">
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Certified Rigger (L1, L2, L3)</h3>
-            <span class="role-card-code">SWL-RIGGER</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Govt. certified rigging license or ITI Rigging with 3+ years heavy plant lift experience.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Calculating Safe Working Loads (SWL), D-shackle inspection, spreader beams &amp; sling hitching.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Protocol:</span>
-              <span class="role-info-val">Center of gravity (COG) calculation and load-angle stress factor compliance.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Crane Signalman &amp; Marshall</h3>
-            <span class="role-card-code">SIGNAL-MARSHALL</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Certified signalman with radio protocol and visual hand signal competency certification.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Directing blind crane maneuvers, tail-rope tag management &amp; drop-zone clearance.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Protocol:</span>
-              <span class="role-info-val">Dedicated two-way radio channels &amp; universal whistle emergency stops.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">24 to 48 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Certified Scaffolder &amp; Lead</h3>
-            <span class="role-card-code">CUPLOCK-BS12811</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Certified scaffolder trained in BS EN 12811 / IS 2750 with height medical clearance.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Heavy-duty staging erection, cantilever scaffolding, green-tag audit &amp; sole plate leveling.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Protocol:</span>
-              <span class="role-info-val">100% tie-off dual shock-absorbing lanyards and full-body safety harnesses.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">Immediate Batch Transit.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Heavy Equipment Operator</h3>
-            <span class="role-card-code">HYDRA-CRANE</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Commercial heavy motor vehicle (HMV) driving license with crane operator certification.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Operation of Hydra (14T-25T), Crawler Crane, JCB &amp; Excavator in congested plant layouts.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Protocol:</span>
-              <span class="role-info-val">Outrigger stability checks, safe load indicator (SLI) monitoring &amp; daily boom inspection.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 Hours.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="division-action-bar">
-        <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 20px;">🏢 Hire Rigging Crews</a>
-        <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 20px;">👷 Apply as Rigger</a>
-      </div>
-    </div>
+    </section>
 
     <!-- DIVISION 4: TURNKEY PLANT STAFFING -->
-    <div class="division-section div-amber" id="turnkey-plants">
-      <div class="division-header-wrap">
-        <div class="division-head-row">
-          <h2 class="division-title">⚙️ Turnkey Plant Staffing &amp; Engineering Crew</h2>
-          <div class="division-tags">
-            <span class="div-tag div-tag-amber">CEA Licensed</span>
-            <span class="div-tag div-tag-amber">Turnkey Batches</span>
-            <span class="div-tag div-tag-amber">Substation Commissioning</span>
+    <section class="svc-division-card" id="turnkey-plants" style="border-top: 4px solid var(--amber);">
+      <div class="svc-banner-header">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Turnkey Plant Staffing Substation" class="svc-banner-img" />
+        <div class="svc-banner-overlay"></div>
+        <div class="svc-banner-content">
+          <div class="svc-banner-title">
+            <span>⚙️</span> Turnkey Plant Staffing &amp; Engineering Crew
+          </div>
+          <div class="svc-banner-badges">
+            <span class="svc-badge-pill">CEA Licensed</span>
+            <span class="svc-badge-pill">Substation Commissioning</span>
           </div>
         </div>
-        <p class="division-overview">
-          Comprehensive project site workforce capable of handling heavy civil foundations, switchyard electrical commissioning, instrument loop testing, and complete plant shift maintenance.
+      </div>
+
+      <div class="svc-card-body">
+        <p class="svc-overview-text">
+          Comprehensive project site workforce capable of handling heavy foundation casting, switchyard electrical commissioning, instrument calibration, turbine alignment, and complete 24x7 shift operations.
         </p>
+
+        <div class="svc-roles-grid">
+          <div class="svc-role-box" style="border-left: 4px solid var(--amber);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">HT / LT Industrial Electrician</h3>
+              <span class="svc-role-code">HT-LT-WIREMAN</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">ITI Electrician with State Electrical Licensing Board HT/LT wireman or supervisor license.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Transformer termination, HT cable jointing, motor megger testing, switchgear &amp; PLC panels.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Compliance:</span>
+                <span class="svc-field-val">Lockout-Tagout (LOTO), arc-flash protective gear &amp; earthing resistance testing.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 to 72 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--amber);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Civil Site Engineer &amp; Lead</h3>
+              <span class="svc-role-code">CIVIL-ENG</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">B.Tech or Diploma in Civil Engineering with heavy industrial infrastructure background.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Mass foundation casting, pile cap erection, shuttering audits &amp; bar-bending schedules (BBS).</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Compliance:</span>
+                <span class="svc-field-val">Total station survey layout verification &amp; concrete cube compressive test records.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>72 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--amber);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Instrumentation Technician</h3>
+              <span class="svc-role-code">DCS-CALIBRATE</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">Diploma / ITI in Instrumentation with process sensor transmitter calibration skills.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Loop checking, RTD / thermocouple calibration, control valve actuator tuning &amp; tubing.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Compliance:</span>
+                <span class="svc-field-val">Intrinsically safe junction box termination under hazardous area classification.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 to 72 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-role-box" style="border-left: 4px solid var(--amber);">
+            <div class="svc-role-top">
+              <h3 class="svc-role-name">Millwright Fitter &amp; Mechanic</h3>
+              <span class="svc-role-code">TURBINE-FITTER</span>
+            </div>
+            <div class="svc-role-fields">
+              <div class="svc-field-row">
+                <span class="svc-field-label">🎓 Mandatory Qualification:</span>
+                <span class="svc-field-val">ITI Millwright / Mechanical Fitter with 4+ years turbine and pump overhaul experience.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">🛠️ Technical Scope:</span>
+                <span class="svc-field-val">Dial gauge laser alignment, gearbox bearing clearance, dynamic balancing &amp; pump gland packing.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">📜 Safety Compliance:</span>
+                <span class="svc-field-val">Vibration analysis limits &amp; shaft run-out tolerances under ISO 10816.</span>
+              </div>
+              <div class="svc-field-row">
+                <span class="svc-field-label">⏱️ Deployment SLA:</span>
+                <span class="svc-field-val"><strong>48 Hours</strong>.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-action-footer">
+          <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 22px;">🏢 Request Turnkey Staffing</a>
+          <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 22px;">👷 Apply as Engineer / Tech</a>
+        </div>
       </div>
+    </section>
 
-      <div class="role-cards-grid">
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">HT / LT Industrial Electrician</h3>
-            <span class="role-card-code">HT-LT-WIREMAN</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">ITI Electrician with State Electrical Licensing Board HT/LT wireman or supervisor license.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Transformer termination, HT cable jointing, motor megger testing, switchgear &amp; PLC panels.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Compliance:</span>
-              <span class="role-info-val">Lockout-Tagout (LOTO), arc-flash protective gear &amp; earthing resistance testing.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 to 72 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Civil Site Engineer &amp; Lead</h3>
-            <span class="role-card-code">CIVIL-ENG</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">B.Tech or Diploma in Civil Engineering with heavy industrial infrastructure background.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Mass foundation casting, pile cap erection, shuttering audits &amp; bar-bending schedule (BBS).</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Compliance:</span>
-              <span class="role-info-val">Total station survey layout verification &amp; concrete cube compressive test records.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">72 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Instrumentation Technician</h3>
-            <span class="role-card-code">DCS-CALIBRATE</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">Diploma / ITI in Instrumentation with process sensor transmitter calibration skills.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Loop checking, RTD / thermocouple calibration, control valve actuator tuning &amp; tubing.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Compliance:</span>
-              <span class="role-info-val">Intrinsically safe junction box termination under hazardous area classification.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 to 72 Hours.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="role-spec-card">
-          <div class="role-card-top">
-            <h3 class="role-card-name">Millwright Fitter &amp; Mechanic</h3>
-            <span class="role-card-code">TURBINE-FITTER</span>
-          </div>
-          <div class="role-info-rows">
-            <div class="role-info-item">
-              <span class="role-info-lbl">Mandatory Qualification:</span>
-              <span class="role-info-val">ITI Millwright / Mechanical Fitter with 4+ years turbine and pump overhaul experience.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Technical Scope:</span>
-              <span class="role-info-val">Dial gauge laser alignment, gearbox bearing clearance, dynamic balancing &amp; pump gland packing.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Safety Compliance:</span>
-              <span class="role-info-val">Vibration analysis limits &amp; shaft run-out tolerances under ISO 10816.</span>
-            </div>
-            <div class="role-info-item">
-              <span class="role-info-lbl">Deployment SLA:</span>
-              <span class="role-info-val">48 Hours.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="division-action-bar">
-        <a href="hire-manpower.html" class="btn-card btn-card-blue" style="width:auto; padding:0 20px;">🏢 Request Turnkey Staffing</a>
-        <a href="jobs.html" class="btn-card btn-card-green" style="width:auto; padding:0 20px;">👷 Apply as Engineer / Tech</a>
-      </div>
-    </div>
-
-    <!-- SECTION 5: TRADE TESTING & QUALITY VERIFICATION SLA FLOW -->
-    <div class="rich-section" id="testing-sla">
+    <!-- SECTION 5: TRADE TESTING SLA FLOW -->
+    <section class="rich-section" id="testing-sla">
       <h2 class="rich-section-title">🧪 4-Stage Trade Testing &amp; Quality Verification SLA</h2>
       <p class="rich-section-sub">Standard operating protocol ensuring every craftsman deployed passes physical skill tests and background clearance prior to plant arrival.</p>
 
@@ -617,10 +870,10 @@
           <div class="workflow-footer-pill">✔ Day-1 Immediate Shift Reporting Guaranteed</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- SECTION 6: MASTER TRADES COMPARISON MATRIX -->
-    <div class="division-section" id="quick-matrix" style="border-top:4px solid var(--primary);">
+    <!-- SECTION 6: MASTER COMPARISON MATRIX -->
+    <section class="division-section" id="quick-matrix" style="border-top:4px solid var(--primary);">
       <div class="division-header-wrap">
         <h2 class="division-title">📊 Master Industrial Trades Comparison Matrix</h2>
         <p class="division-overview">
@@ -713,7 +966,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer-4col">
