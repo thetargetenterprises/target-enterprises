@@ -238,7 +238,7 @@
     if (closeTrigger) closeTrigger.addEventListener('click', function() { toggleMenu(false); });
     if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
 
-    // SLIDER AUTO-RESUME CONTROLLER (5 SECONDS EXACT PAUSE)
+    // SLIDER AUTO-RESUME CONTROLLER (2.5 SECONDS EXACT PAUSE)
     var sliderTrack = document.querySelector('.slider-track');
     if (sliderTrack) {
       var resumeTimeout;
@@ -247,7 +247,7 @@
         clearTimeout(resumeTimeout);
         resumeTimeout = setTimeout(function() {
           sliderTrack.style.animationPlayState = 'running';
-        }, 5000);
+        }, 2500);
       }
       sliderTrack.addEventListener('mouseenter', pauseAndAutoResume);
       sliderTrack.addEventListener('touchstart', pauseAndAutoResume, { passive: true });
