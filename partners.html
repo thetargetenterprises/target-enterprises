@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>Vendor & Subcontractor Network | Target Enterprises Placement Office</title>
-  <link rel="stylesheet" href="style.css?v=2026.09.20" />
+  <meta name="description" content="B2B partnership and subcontracting registration for turnkey shutdowns, tenders, and interstate manpower pooling." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css?v=2026.09.21" />
 </head>
 <body>
 
@@ -275,6 +277,52 @@
     if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
 
     // SLIDER AUTO-RESUME CONTROLLER (2.5 SECONDS EXACT PAUSE)
+    var sliderTrack = document.querySelector('.slider-track');
+    if (sliderTrack) {
+      var resumeTimeout;
+      function pauseAndAutoResume() {
+        sliderTrack.style.animationPlayState = 'paused';
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(function() {
+          sliderTrack.style.animationPlayState = 'running';
+        }, 2500);
+      }
+      sliderTrack.addEventListener('mouseenter', pauseAndAutoResume);
+      sliderTrack.addEventListener('touchstart', pauseAndAutoResume, { passive: true });
+      sliderTrack.addEventListener('click', pauseAndAutoResume);
+    }
+  </script>
+
+  <script>
+    var openTrigger = document.getElementById('openDrawerTrigger');
+    var closeTrigger = document.getElementById('closeDrawerTrigger');
+    var drawerEl = document.getElementById('megaDrawer');
+    var backdropEl = document.getElementById('drawerBackdrop');
+
+    function toggleMenu(isOpen) {
+      if (isOpen) {
+        drawerEl.classList.add('open');
+        backdropEl.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawerEl.classList.remove('open');
+        backdropEl.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    if (openTrigger) openTrigger.addEventListener('click', function() { toggleMenu(true); });
+    if (closeTrigger) closeTrigger.addEventListener('click', function() { toggleMenu(false); });
+    if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
+
+    // Auto close drawer when any link inside it is clicked (fixes in-page anchor freeze)
+    if (drawerEl) {
+      var dLinks = drawerEl.querySelectorAll('a');
+      dLinks.forEach(function(link) {
+        link.addEventListener('click', function() { toggleMenu(false); });
+      });
+    }
+
+    // 2.5-Second Slider Pause & Auto-Resume Controller
     var sliderTrack = document.querySelector('.slider-track');
     if (sliderTrack) {
       var resumeTimeout;
