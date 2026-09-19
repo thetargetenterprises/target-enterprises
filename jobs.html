@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Industrial Job Openings &amp; Placements | Target Enterprises</title>
-  <link rel="stylesheet" href="style.css?v=2026.6" />
+  <link rel="stylesheet" href="style.css?v=2026.7" />
 </head>
 <body>
 
@@ -26,8 +26,8 @@
         <a href="send-email.html" class="header-btn header-btn-email">
           <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <span>Send Email</span>
         </a>
-        <button class="header-btn header-btn-menu" id="openDrawerTrigger" aria-label="Open Navigation Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg> <span>MENU</span>
+        <button class="header-btn-icon-menu" id="openDrawerTrigger" aria-label="Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
         </button>
       </div>
     </div>
@@ -36,7 +36,7 @@
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
   <div class="mega-drawer" id="megaDrawer">
     <div class="drawer-top">
-      <h3>TARGET <span>MENU</span></h3>
+      <h3>TARGET <span>NAVIGATION</span></h3>
       <button class="drawer-close" id="closeDrawerTrigger" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </div>
     <ul class="drawer-links-list">
@@ -64,7 +64,7 @@
 
   <main class="container">
     <div class="form-card-wrapper" style="border-top:3px solid var(--green);">
-      <h3 style="font-size:17px; color:var(--green); margin-bottom:4px; font-weight:800;">👷 Candidate Job Application Form</h3>
+      <h3 style="font-size:16px; color:var(--green); margin-bottom:4px; font-weight:800;">👷 Candidate Job Application Form</h3>
       <p style="color:var(--text-muted); font-size:12.5px; margin-bottom:18px;">Submit your qualifications and trade credentials directly to our recruitment team.</p>
 
       <form id="jobForm" class="form-grid-2col" enctype="multipart/form-data">
@@ -225,17 +225,17 @@
         <div class="footer-col">
           <h4>Industrial Divisions</h4>
           <ul class="footer-links-list">
-            <li><a href="services.html">Fire &amp; Emergency Crew</a></li>
-            <li><a href="services.html">Industrial Safety (EHS)</a></li>
-            <li><a href="services.html">6G Welding &amp; Fabrication</a></li>
-            <li><a href="services.html">Civil &amp; Electrical Staffing</a></li>
+            <li><a href="services.html#ehs-safety">Fire &amp; Emergency Crew</a></li>
+            <li><a href="services.html#ehs-safety">Industrial Safety (EHS)</a></li>
+            <li><a href="services.html#welding-6g">6G Welding &amp; Fabrication</a></li>
+            <li><a href="services.html#turnkey-plants">Civil &amp; Electrical Staffing</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Direct Operations</h4>
           <p>Sonbhadra, Uttar Pradesh - 231216</p>
           <p style="margin-top:4px;"><strong>Hotline:</strong> <a href="tel:+917307091677" style="color:var(--primary);">+91 7307091677</a></p>
-          <p style="margin-top:8px;"><a href="send-email.html" class="header-btn header-btn-email"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Compose Email</a></p>
+          <p style="margin-top:6px;"><a href="send-email.html" class="header-btn header-btn-email"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Compose Email</a></p>
         </div>
       </div>
       <div class="footer-bottom-bar">
@@ -272,6 +272,22 @@
     if (openTrigger) openTrigger.addEventListener('click', function() { toggleMenu(true); });
     if (closeTrigger) closeTrigger.addEventListener('click', function() { toggleMenu(false); });
     if (backdropEl) backdropEl.addEventListener('click', function() { toggleMenu(false); });
+
+    // SLIDER AUTO-RESUME CONTROLLER (5 SECONDS EXACT PAUSE)
+    var sliderTrack = document.querySelector('.slider-track');
+    if (sliderTrack) {
+      var resumeTimeout;
+      function pauseAndAutoResume() {
+        sliderTrack.style.animationPlayState = 'paused';
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(function() {
+          sliderTrack.style.animationPlayState = 'running';
+        }, 5000);
+      }
+      sliderTrack.addEventListener('mouseenter', pauseAndAutoResume);
+      sliderTrack.addEventListener('touchstart', pauseAndAutoResume, { passive: true });
+      sliderTrack.addEventListener('click', pauseAndAutoResume);
+    }
   </script>
 
 </body>
