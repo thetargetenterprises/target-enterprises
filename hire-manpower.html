@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hire Industrial Workforce | Target Enterprises Placement Office</title>
-  <link rel="stylesheet" href="style.css?v=2026.7" />
+  <link rel="stylesheet" href="style.css?v=2026.8" />
 </head>
 <body>
 
@@ -56,110 +56,148 @@
 
   <section class="hero-wrapper" style="padding:28px 0 16px 0;">
     <div class="container">
-      <div class="pill-badge" style="color:var(--blue); border-color:rgba(2,132,199,0.25);"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Employer Requisition Portal</div>
+      <div class="pill-badge" style="color:var(--blue); border-color:rgba(2,132,199,0.25);"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Enterprise Requisition Desk</div>
       <h1 class="hero-headline">Deploy Verified <span>Technical Workforce</span></h1>
-      <p class="hero-subline">Supply of 10 to 500+ certified personnel for power plants, refineries, cement units, and infrastructure sites across India with zero downtime.</p>
+      <p class="hero-subline">Supply of 1 to 500+ pre-vetted personnel for heavy industrial plants, refineries, cement complexes, and EPC infrastructure across India with zero downtime.</p>
     </div>
   </section>
 
   <main class="container">
     <div class="form-card-wrapper" style="border-top:3px solid var(--blue);">
-      <h3 style="font-size:16px; color:var(--blue); margin-bottom:4px; font-weight:800;">🏢 Industrial Client Requisition Form</h3>
-      <p style="color:var(--text-muted); font-size:12.5px; margin-bottom:18px;">Submissions are processed directly by our central deployment desk.</p>
+      <h3 style="font-size:16px; color:var(--blue); margin-bottom:4px; font-weight:800;">🏢 Enterprise Industrial Requisition Form</h3>
+      <p style="color:var(--text-muted); font-size:12.5px; margin-bottom:18px;">Directly processed by our operations and compliance deployment desk under CLRA &amp; Factory Act standards.</p>
 
       <form id="hireForm" class="form-grid-2col" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="[CLIENT REQUISITION] - Target Enterprises" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_autoresponse" value="Thank you for submitting your manpower requisition to Target Enterprises. Our deployment team is reviewing your requirements and will reach out with a technical proposal shortly." />
+        <input type="hidden" name="_autoresponse" value="Thank you for submitting your manpower requisition to Target Enterprises. Our deployment team is reviewing your requirements and will reach out with a technical quotation and compliance dossier shortly." />
 
         <div class="form-group-item">
           <label>Company / EPC Contractor Legal Name *</label>
-          <input type="text" name="Company_Name" placeholder="e.g. Larsen &amp; Toubro, BHEL, Reliance Partner" required />
+          <input type="text" name="Company_Legal_Name" placeholder="e.g. Larsen &amp; Toubro, BHEL, Reliance Partner" required />
         </div>
+
         <div class="form-group-item">
-          <label>Industry Sector *</label>
+          <label>Industry Sector (उद्योग क्षेत्र) *</label>
           <select name="Industry_Sector" required>
-            <option value="Thermal Power Plant">Thermal Power Plant</option>
-            <option value="Oil & Gas / Petroleum Refinery">Oil &amp; Gas / Petroleum Refinery</option>
-            <option value="Cement / Chemical Manufacturing">Cement / Chemical Manufacturing</option>
-            <option value="EPC Infrastructure & Heavy Fabrication">EPC Infrastructure &amp; Heavy Fabrication</option>
-            <option value="Plant Shutdown / Turnaround">Plant Shutdown / Turnaround (Urgent)</option>
+            <option value="Thermal & Supercritical Power Plants">Thermal &amp; Supercritical Power Plants</option>
+            <option value="Solar, Wind & Renewable Energy Parks">Solar, Wind &amp; Renewable Energy Parks</option>
+            <option value="Hydroelectric & Dam Projects">Hydroelectric &amp; Dam Projects</option>
+            <option value="Oil, Gas & Petroleum Refineries">Oil, Gas &amp; Petroleum Refineries</option>
+            <option value="Petrochemicals, Polymers & Fertilizers">Petrochemicals, Polymers &amp; Fertilizers</option>
+            <option value="Cement Manufacturing & Grinding Units">Cement Manufacturing &amp; Grinding Units</option>
+            <option value="Steel, Aluminum & Metallurgical Smelters">Steel, Aluminum &amp; Metallurgical Smelters</option>
+            <option value="Mining, Quarrying & Mineral Processing">Mining, Quarrying &amp; Mineral Processing</option>
+            <option value="Cross-Country Oil, Gas & Water Pipelines">Cross-Country Oil, Gas &amp; Water Pipelines</option>
+            <option value="EPC Infrastructure, Bridges & Expressways">EPC Infrastructure, Bridges &amp; Expressways</option>
+            <option value="Railways, Metro Rail & Dedicated Freight Corridors">Railways, Metro Rail &amp; DFC Projects</option>
+            <option value="Ports, Marine & Shipyard Construction">Ports, Marine &amp; Shipyard Construction</option>
+            <option value="Heavy Chemical, Chlorine & Acid Plants">Heavy Chemical, Chlorine &amp; Acid Plants</option>
+            <option value="Turnaround, Revamp & Emergency Plant Shutdowns">Turnaround, Revamp &amp; Emergency Plant Shutdowns</option>
           </select>
         </div>
+
         <div class="form-group-item">
           <label>Authorized Contact Person &amp; Role *</label>
-          <input type="text" name="Contact_Person" placeholder="Full Name &amp; Designation" required />
+          <input type="text" name="Contact_Person" placeholder="Full Name (HR Manager / Site In-charge)" required />
         </div>
+
         <div class="form-group-item">
           <label>Official Mobile Number (WhatsApp Active) *</label>
           <input type="tel" name="Phone_Number" placeholder="+91 9876543210" required />
         </div>
+
         <div class="form-group-item">
-          <label>Official Work Email Address (For Quotation) *</label>
+          <label>Official Work Email Address (For Quotations) *</label>
           <input type="email" name="email" placeholder="procurement@company.com" required />
         </div>
+
         <div class="form-group-item">
           <label>Plant / Project Site Location &amp; State *</label>
           <input type="text" name="Site_Location" placeholder="e.g. Sonbhadra (UP), Jamnagar (GJ), Paradip (OD)" required />
         </div>
+
         <div class="form-group-item">
-          <label>Total Workforce Count Needed *</label>
+          <label>Total Workforce Count Needed (मैनपावर संख्या) *</label>
           <select name="Workforce_Quantity" required>
-            <option value="5 to 15 Workers">5 to 15 Workers (Immediate)</option>
-            <option value="15 to 50 Workers">15 to 50 Workers</option>
-            <option value="50 to 100 Workers">50 to 100 Workers (Bulk)</option>
-            <option value="100+ Workers">100+ Workers (Shutdown / Turnaround)</option>
+            <option value="1 to 5 Workers (Core Specialized Technicians)">1 to 5 Workers (Core Specialized Technicians)</option>
+            <option value="5 to 15 Workers (Immediate Site Crew)">5 to 15 Workers (Immediate Site Crew)</option>
+            <option value="15 to 50 Workers (Standard Project Team)">15 to 50 Workers (Standard Project Team)</option>
+            <option value="50 to 100 Workers (Bulk Turnkey Staffing)">50 to 100 Workers (Bulk Turnkey Staffing)</option>
+            <option value="100 to 500+ Workers (Plant Shutdown / Turnaround)">100 to 500+ Workers (Plant Shutdown / Turnaround)</option>
           </select>
         </div>
+
         <div class="form-group-item">
-          <label>Required Profiles Breakdown *</label>
-          <select name="Primary_Trade" required>
-            <option value="Fire & Safety Crew (Firemen, Officers, Stewards)">Fire &amp; Safety Crew (Firemen, Officers, Stewards)</option>
-            <option value="Mechanical Fabrication (Riggers, Fitters, 6G Welders)">Mechanical Fabrication (Riggers, Fitters, 6G Welders)</option>
-            <option value="Civil & Electrical Site Staff (Engineers, Supervisors)">Civil &amp; Electrical Site Staff (Engineers, Supervisors)</option>
+          <label>Primary Required Profiles Breakdown *</label>
+          <select name="Required_Profiles_Breakdown" required>
+            <option value="EHS Safety Officers (ADIS / NEBOSH) & Stewards">EHS Safety Officers (ADIS / NEBOSH) &amp; Stewards</option>
+            <option value="Fire & Rescue Team (Firemen, Supervisors, Pump Techs)">Fire &amp; Rescue Team (Firemen, Supervisors, Pump Techs)</option>
+            <option value="6G TIG & ARC Welders (ASME / IBR Certified)">6G TIG &amp; ARC Welders (ASME / IBR Certified)</option>
+            <option value="Mechanical Piping & Structural Fitters">Mechanical Piping &amp; Structural Fitters</option>
+            <option value="Certified Riggers (L1, L2, L3) & Crane Signalmen">Certified Riggers (L1, L2, L3) &amp; Crane Signalmen</option>
+            <option value="HT / LT Industrial Electricians & Cable Jointers">HT / LT Industrial Electricians &amp; Cable Jointers</option>
+            <option value="Civil Site Engineers, Supervisors & Surveyors">Civil Site Engineers, Supervisors &amp; Surveyors</option>
+            <option value="Instrumentation Technicians & Calibration Fitters">Instrumentation Technicians &amp; Calibration Fitters</option>
+            <option value="NDT Level-II Technicians & QA/QC Welding Inspectors">NDT Level-II Technicians &amp; QA/QC Inspectors</option>
+            <option value="Certified Scaffolders (Cuplock / Tube) & Supervisors">Certified Scaffolders (Cuplock / Tube) &amp; Supervisors</option>
+            <option value="Sand Blasters & Airless Spray Industrial Painters">Sand Blasters &amp; Airless Spray Industrial Painters</option>
+            <option value="Heavy Equipment Operators (Hydra, Crane, JCB, Excavator)">Heavy Equipment Operators (Hydra, Crane, JCB, Excavator)</option>
+            <option value="Store Keepers, Time Keepers & Billing (MIS) Operators">Store Keepers, Time Keepers &amp; Billing Operators</option>
             <option value="General Technical Workforce (Cutters, Grinders, Helpers)">General Technical Workforce (Cutters, Grinders, Helpers)</option>
-            <option value="Turnkey Mixed Package (All Trades Included)">Turnkey Mixed Package (All Trades Included)</option>
+            <option value="Turnkey Multidisciplinary Package (All Trades with Lead)">Turnkey Multidisciplinary Package (All Trades with Lead)</option>
           </select>
         </div>
+
         <div class="form-group-item">
-          <label>Deployment Timeline *</label>
+          <label>Deployment Timeline / Urgency *</label>
           <select name="Deployment_Timeline" required>
-            <option value="Urgent Mobilization (Within 48-72 Hours)">Urgent Mobilization (Within 48-72 Hours)</option>
+            <option value="Immediate Mobilization (Within 48-72 Hours)">Immediate Mobilization (Within 48-72 Hours)</option>
             <option value="Within 1 to 2 Weeks">Within 1 to 2 Weeks</option>
-            <option value="Planned Next Month">Planned Next Month</option>
+            <option value="Within 1 Month (Planned Shutdown)">Within 1 Month (Planned Shutdown)</option>
           </select>
         </div>
+
         <div class="form-group-item">
           <label>Contract Duration *</label>
           <select name="Contract_Duration" required>
-            <option value="Short-Term Shutdown (15-45 Days)">Short-Term Shutdown (15-45 Days)</option>
-            <option value="Medium-Term (3-6 Months)">Medium-Term (3-6 Months)</option>
-            <option value="Long-Term Annual Contract (1+ Year)">Long-Term Annual Contract (1+ Year)</option>
+            <option value="Short-Term Shutdown (15 to 45 Days)">Short-Term Shutdown (15 to 45 Days)</option>
+            <option value="Medium-Term (3 to 6 Months)">Medium-Term (3 to 6 Months)</option>
+            <option value="Annual Maintenance Contract (1+ Year)">Annual Maintenance Contract (1+ Year)</option>
+            <option value="Multi-Year Project Execution">Multi-Year Project Execution</option>
           </select>
         </div>
+
         <div class="form-group-item">
-          <label>Shift Schedule *</label>
+          <label>Shift Schedule &amp; Overtime Pattern *</label>
           <select name="Shift_Pattern" required>
-            <option value="General 8-Hour Shift">General 8-Hour Shift</option>
-            <option value="12-Hour Rotational Shifts">12-Hour Rotational Shifts</option>
-            <option value="24x7 Round-the-Clock Emergency Ops">24x7 Round-the-Clock Emergency Ops</option>
+            <option value="General 8-Hour Shift (6 Days / Week)">General 8-Hour Shift (6 Days / Week)</option>
+            <option value="12-Hour Rotational Shifts (Day/Night)">12-Hour Rotational Shifts (Day/Night)</option>
+            <option value="24x7 Continuous Plant Operations (3 Shifts)">24x7 Continuous Plant Operations (3 Shifts)</option>
           </select>
         </div>
+
         <div class="form-group-item">
-          <label>Food &amp; Accommodation Provision *</label>
-          <select name="Accommodation_Provision" required>
-            <option value="Provided by Client on Site">Provided by Client on Site</option>
-            <option value="To be Managed by Target Enterprises">To be Managed by Target Enterprises</option>
+          <label>Accommodation, Food &amp; Local Transport *</label>
+          <select name="Facilities_Provision" required>
+            <option value="Provided by Client on Site Camp">Provided by Client on Site Camp</option>
+            <option value="To be Managed by Target Enterprises (Turnkey)">To be Managed by Target Enterprises (Turnkey)</option>
           </select>
         </div>
+
         <div class="form-group-item col-full">
-          <label>Detailed Scope of Work, Technical Licenses &amp; PPE Standards *</label>
-          <textarea name="Project_Scope_Details" rows="3" placeholder="Specify technical duties, gate-pass police verification needs, medical tests required, or specialized PPE standards..." required></textarea>
+          <label>Detailed Scope of Work, Gate Pass Protocol &amp; Specific Safety Gear *</label>
+          <textarea name="Project_Scope_Details" rows="3" placeholder="Specify technical duties, police verification/Aadhaar gate pass requirements, medical tests required, mandatory PPE, or specific client EHS guidelines..." required></textarea>
         </div>
+
         <div class="form-group-item col-full">
-          <label>Attach RFQ / Work Order / Scope Document (Optional: PDF/JPG)</label>
+          <label>Attach RFQ / Work Order / Manpower Schedule (Optional: PDF/DOC/JPG)</label>
           <input type="file" name="Scope_Document" accept=".pdf,.doc,.docx,.jpg,.png" />
+        </div>
+
+        <div class="compliance-note col-full">
+          🔒 <strong>Compliance &amp; Statutory Commitment:</strong> All personnel deployed comply with the Contract Labour (Regulation and Abolition) Act 1970, Factories Act 1948, EPFO, ESIC, and Workmen Compensation policies with zero commercial liability transferred to the principal employer.
         </div>
 
         <div id="hireAlert" class="feedback-alert"></div>
@@ -188,7 +226,7 @@
         if (res.ok) {
           hAlert.className = "feedback-alert alert-ok";
           hAlert.style.display = "block";
-          hAlert.innerHTML = "✔ Requisition submitted successfully! Confirmation sent to your email.";
+          hAlert.innerHTML = "✔ Requisition submitted successfully! Official confirmation sent to your email.";
           hForm.reset();
         } else {
           throw new Error();
@@ -197,7 +235,7 @@
       .catch(function(err) {
         hAlert.className = "feedback-alert alert-fail";
         hAlert.style.display = "block";
-        hAlert.innerHTML = "⚠️ Error submitting form. Please call +91 7307091677.";
+        hAlert.innerHTML = "⚠️ Error submitting form. Please call our hotline +91 7307091677.";
       })
       .finally(function() {
         hBtn.disabled = false;
@@ -239,8 +277,8 @@
         </div>
       </div>
       <div class="footer-bottom-bar">
-        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved.</span>
-        <span>Strict Legal, ESIC, PF &amp; EHS Compliance Enforced.</span>
+        <span>&copy; 2026 Target Enterprises Placement Office. All Rights Reserved. Pan-India Workforce Mobilization.</span>
+        <span>Compliant with Factories Act 1948, CLRA Act 1970, EPFO, ESIC &amp; State Labour Regulations.</span>
       </div>
     </div>
   </footer>
